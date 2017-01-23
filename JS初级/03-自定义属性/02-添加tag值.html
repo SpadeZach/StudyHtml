@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		li{list-style: none;;width:238px;height:160px;background: url(img/1.png);float: left;margin-right: 20px;}
+		.clear{zoom:1;}
+		.clear:after{content: "";display: block;clear: both;}
+		input{margin-right: 20px;}
+	</style>
+	<script>
+		window.onload = function  () {
+			var aBtn = document.getElementsByTagName('input');
+			var aP = document.getElementsByTagName('p');  
+			var arr = ['赵信','盖伦','易'];
+			for (var i = 0; i < aBtn.length; i++) {
+				aBtn[i].tag = i;
+				aBtn[i].onclick = function(){
+						this.value = arr[this.tag];
+						aP[this.tag].innerHTML = arr[this.tag];
+				};
+			};
+		}
+
+
+
+	</script>
+</head>
+<body>
+	<input type="button" value = "btn1"/>
+	<input type="button" value = "btn2"/>
+	<input type="button" value = "btn3"/>
+	<p>a</p>
+	<p>b</p>
+	<p>c</p>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		/*
+		HTML 	属性操作:读、写
+				属性名 id
+				属性值 btn1
+		
+		属性的读操作：获取、找到
+			元素.属性名
+		属性的写操作：（添加）替换、修改
+				元素.属性名=新值
+
+				innerHTML: 在...里的HTML内容
+		*/
+		window.onload = function () {
+			// body...
+			var oBtn = document.getElementById('btn1');
+			var oText = document.getElementById('text1');
+			var oSelect = document.getElementById('select1');
+			var oP = document.getElementById('p1');
+
+			oBtn.onclick = function  () {
+				// body...
+				// alert(oBtn.value);
+				// alert(oText.value);
+
+				//字符串拼接
+				// alert(oText.value+'在'+oSelect.value)
+				//修改按钮文字
+				// oBtn.value = 'button';
+				// 替换值
+				// oText.value = '按钮';
+				oP.innerHTML = '我就是改改';
+				oText.value = oSelect.value;
+
+			}
+
+		}
+
+
+	</script>
+</head>
+<body>
+	<input type="text" id="text1"/>
+	<select name="" id="select1">
+		<option value="北京">北京</option>
+		<option value="上海">上海</option>
+		<option value="杭州">杭州</option>
+	</select>
+	<input id="btn1" type="button" value="按钮"/>
+	<p id="p1">我是p标签啊</p>
+</body>
+</html>

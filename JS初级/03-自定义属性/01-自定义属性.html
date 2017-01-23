@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		li{list-style: none;;width:238px;height:160px;background: url(img/1.png);float: left;margin-right: 20px;}
+		.clear{zoom:1;}
+		.clear:after{content: "";display: block;clear: both;}
+		input{margin-right: 20px;}
+	</style>
+	<script>
+		window.onload = function  () {
+			//js可以为任何HTML元素添加任何一个自定义属性
+			var aLi = document.getElementsByTagName('li');
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].onOff = true;
+				aLi[i].onclick = function(){
+					if (this.onOff) {
+						this.style.background = 'url(img/2.png)';
+						this.onOff = false;
+					}else{
+						this.style.background = 'url(img/1.png)';
+						this.onOff = true;
+					};
+	               
+				};
+			};
+			var aBtn = document.getElementsByTagName('input'); 
+			var arr = ['A','B','C','D'];
+			for (var i = 0; i < aBtn.length; i++) {
+				aBtn[i].num = 0; //给下面3个按钮添加num属性
+				aBtn[i].onclick = function(){
+					this.value = arr[this.num];
+					
+					this.num++;
+					if (this.num == arr.length) {
+						this.num = 0;
+					};
+				}
+			};
+		}
+
+
+
+	</script>
+</head>
+<body>
+	<ul class = "clear">
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<input type="button" value = "0"/>
+	<input type="button" value = "0"/>
+	<input type="button" value = "0"/>
+</body>
+</html>

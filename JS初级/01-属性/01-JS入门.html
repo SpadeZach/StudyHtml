@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- 2017-01-18 -->
+	<title>Document</title>
+	<style>
+		li{list-style: none;}
+	 	.first{padding: 0 40px;margin: 0;}
+	 	.first ul{padding: 0;margin: 0;}
+	 	.lis{width: 80px;height: 30px;border: 1px solid #333; position: relative;}
+	 	.lis a{display: block;line-height: 30px;text-align: center;text-decoration: none;color: #000;background: #f1f1f1;}
+	 	.lis ul{padding: 0;margin: 0;width: 140px;border: 1px solid #333;position: absolute;top:  30px; left: -1px;background: #FF9;display: none;}
+	 	.lis ul li{text-align: center;line-height: 30px;}
+	 	.btn{margin-top: 100px;}
+	 	.box{width: 100px;height: 100px;background: red;display: none;}
+	</style>
+	<!-- 
+		希望把某个元素移除视图
+		1.display:none;		显示为无
+		2.visibility:hidden 隐藏
+		3.width/height
+		4.透明度
+		5.left/top
+		6.div盖住
+		7.margin负值
+	 -->
+	 <!-- 
+	 	JS实现原理
+	 	1.实现布局
+	 	2.实现原理
+	 	3.了解js语法
+	  -->
+	  <script>
+	 	window.onload = function (){
+			var oBtn1 = document.getElementById('show_Btn');
+			var oBtn2 = document.getElementById('hidden_Btn');
+			var oDiv = document.getElementById('box');
+			var oTitle = document.getElementById('titleClick');
+
+			oTitle.onclick = show;
+			oBtn1.onclick = show;
+			oBtn2.onclick = function (){
+				oDiv.style.display = 'none';
+			}
+			function show (){
+				oDiv.style.display = 'block';
+			}
+
+		}
+	</script>
+
+</head>
+<body>
+	<div class="first">
+		<ul>
+			<li class="lis" id = "lis">
+				<a id="link" href="#">微博</a>
+				<ul id = "ulOne">
+					<li>私信</li>
+					<li>评论</li>
+					<li>@我</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class = "btn">
+		<input id="show_Btn" type="button" value="显示"/>
+		<input id="hidden_Btn" type="button" value="隐藏"/>
+		<strong id ="titleClick">点我也显示</strong>
+	</div>
+	<div class="box" id="box"></div>
+<script>
+	// 1.找到a元素 通过id名称获取元素
+	// 找到document(文档)  get(找) element(元素) by(通过)  id
+	//2.事件
+	//(1)鼠标事件 onclick(点击) onmouseover(移上)onmouseout(移除)onmousemove(鼠标滑动事件) onmouseup(上移) onmouseup(下移) ...
+	// onload 代码加载完执行
+	// window.onload 窗口加载完以后执行
+	//(2)键盘事件
+	//(3)窗口事件
+	//(4)表单事件
+	//(5)自定义事件
+
+	//3.如何添加添加
+	//元素.事件
+	//方法function abc();
+	//调用方法 直接调用abc();
+	//事件调用 元素.事件 = 函数名
+	// 匿名函数 function(){} 调用 元素.事件=function(){} 
+	// 
+	var aShow = document.getElementById('lis');
+	aShow.onmouseover = show;
+	
+	var ulOne = document.getElementById('ulOne');
+	function show () {
+		// body...
+		// alert('我是警告框'); 
+		ulOne.style.display = 'block';
+		aShow.style.background = 'yellow'
+		
+	}
+
+	//移开
+	aShow.onmouseout = function (){
+		ulOne.style.display = 'none';
+		aShow.style.background = '#f1f1f1';
+	};
+	// abc();
+	// 测试:alert(1) 带确定按钮的警告框
+
+
+
+</script>	
+
+</body>
+</html>

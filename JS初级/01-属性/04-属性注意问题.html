@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	#div1{width: 100px;height: 100px;border: 1px solid red;}
+</style>
+<script>
+window.onload = function (){
+	var oImg = document.getElementById('img1');
+	var onOff = true;
+	oImg.onclick = function (){
+
+
+		// alert( oImg.src );
+		// img/1.jpg
+		// file:///C:/Users/Administrator/Desktop/11-4-JS1/img/1.jpg
+		// if( oImg.src == 'img/1.jpg' ){
+		// 不能做为判断条件：
+		
+		// 1、所有的相对路径地址
+		/*
+					img src
+					href 
+					
+			 2、颜色值：color: red 	#f00 rgb() rgba()
+		*/
+			
+		if( onOff ){
+			oImg.src = 'img/2.jpg';
+			onOff = false;
+		} else {
+			oImg.src = 'img/1.jpg';
+			onOff = true;
+		}
+	};
+		var oInp = document.getElementById('inp1');
+
+		oInp.onclick = function (){
+	
+			oInp.type = 'checkbox';
+	
+			// 咱们有仨位“祖宗”
+			/*
+				IE6 IE7 IE8
+			*/
+		};
+
+/*
+	oDiv.style.float = 'right';
+	
+	oDiv.style.styleFloat = 'right';		// IE
+	oDiv.style.cssFloat = 'left';			// 非IE
+	
+	IE（styleFloat）
+	非IE（cssFloat）
+	
+	<div class="right"></div>
+*/
+
+	var oAttr = document.getElementById('attr');
+	var oVal = document.getElementById('val');
+	var oBtn1 = document.getElementById('btn1');
+	var oDiv1 = document.getElementById('div1');
+	// JS允许.替换为[]无兼容性问题
+	oBtn1['onclick'] = function (){
+		  
+		//.后面的值是无法更改的
+		// oDiv1.style.width = oVal.value;
+		
+		oDiv1.style[oAttr.value] = oVal.value;
+	};
+
+};
+</script>
+</head>
+
+<body>
+
+<img id="img1" src="img/1.jpg" width="400" />
+<br/>
+<input id="inp1" type="text" />
+<br/>
+<br/>
+<br/>
+请输入属性名称: <input type="text" id="attr"/>
+<br/>
+请输入属性值:<input type="text" id="val"/>
+ <input id = "btn1" type="button" value="确定"/>
+<div id = "div1"></div>
+</body>
+</html>

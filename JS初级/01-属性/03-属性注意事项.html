@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload = function  () {
+			var oBtn1 = document.getElementById('Btn1');
+			var oBtn2 = document.getElementById('Btn2');
+			var oBtn3 = document.getElementById('Btn3');
+			var oBtn4 = document.getElementById('Btn4');
+			var oP = document.getElementById('p1');
+
+			var num = 15;
+			oBtn1.onclick = function(){
+				
+				if (num <29) {
+					num ++;
+					//JS中不许出现"-"
+					//font-size  fontSize;
+					oP.style.fontSize = num+'px';
+				}
+			}
+			oBtn2.onclick = function(){
+				
+				if (num > 15) {
+					num --;
+					//JS中不许出现"-"
+					//font-size  fontSize;
+					oP.style.fontSize = num+'px';
+				}
+			}
+			oBtn3.onclick=function(){
+
+			// oP.style.width= '300px';
+			// oP.style.background ='red';
+			// oP.style.padding = '20px';
+			// oP.style.color ='white';
+			// oP.style.border = '1px solid #ccc';
+
+			// class保留字  关键字:var function
+			//className
+			oP.className ='red';
+			}
+			oBtn4.onclick=function(){
+
+				oP.className ='blue';
+			}
+
+		}
+		
+
+	</script>
+	<style>
+		.red{width: 300px;background: red;padding: 10px;color: white;border:1px solid #ccc;}
+		.blue{width: 500px;background: blue;padding: 10px;color: red;border:1px solid #ccc;}
+	</style>
+</head>
+<body>
+	<input id = "Btn1" type="button" value="A+"/>
+	<input id = "Btn2" type="button" value="A-"/>
+	<input id = "Btn3" type="button" value="红"/>
+	<input id = "Btn4" type="button" value="蓝"/>
+	<p id="p1">冰天雪地的达沃斯，进入一年中最热闹的时节。
+
+　　50余位国家元首、政府首脑和国际组织主要负责人，超过100个国家和地区政界、商界、学界和媒体代表……数以千计全球精英纷至沓来，出席世界经济论坛2017年年会。
+
+　　国际会议中心外，鲜艳的五星红旗迎风招展。能容纳1700人的全会厅里，人头攒动，座无虚席。
+
+　　当地时间17日11时15分，在世界经济论坛创始人兼执行主席克劳斯·施瓦布邀请下，习近平主席走上主席台发表主旨演讲。
+
+　　国际媒体争相直播，彭博电视台打出快讯字幕：“习成为达沃斯焦点”。中国国家元首首次亮相达沃斯，成为“最令人瞩目的事件”。</p>
+</body>
+</html>

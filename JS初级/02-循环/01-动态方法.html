@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#list li{width: 300px;border-bottom: 1px solid red;}
+	</style>
+</head>
+<body>
+	<ul id="list">
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+	<script>
+	// 元素集合
+		var oUl = document.getElementById('list');
+		var aLi = oUl.getElementsByTagName('li');//动态方法
+		// oLi[0]表示第一个
+		// alert(oLi.length);
+		var arr = ['今天','明天','后天']
+		for (var i = 0; i < aLi.length; i++) {
+			aLi[i].innerHTML = arr[i];
+		};
+		var len = arr.length;	
+		len = 200;	
+		// 页面只有一个
+		// document.body.innerHTML = 'abc';
+		// document.title=123;
+		//性能有问题
+		var str ='';
+		for (var i = 0; i < len; i++) {
+			str += '<input type="button" value = "按钮">';
+		};
+		document.body.innerHTML = str;
+	</script>
+</body>
+</html>

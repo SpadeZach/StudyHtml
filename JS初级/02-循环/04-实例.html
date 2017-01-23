@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{width: 100px;height: 100px;border: 1px solid red;}
+	</style>
+	<script>
+		window.onload = function  () {
+			var oBtn = document.getElementById('btn1');
+			var oList = document.getElementById('list');
+
+			var arr= ['攀枝花官场枪击案：嫌犯因被调查报复杀人','美国百万人示威发泄不满 特朗普执政合法性面临挑战','中国网民规模已达7.31亿 近四成遭遇网上诈骗','外媒称中国有近2亿汽车却难找车位：习惯免费停车','日本高调“示爱”特朗普政府 安倍急赴美要谈钓鱼岛'];
+			/*
+				1.点一次让他不能再点(体验不好)
+				2.把按钮隐藏(体验不好)
+				3.写个bool
+				4.先清空，再生成(性能不好)
+
+			*/
+			var onOff = true;
+			oBtn.onclick = function(){
+				// oBtn.disabled = true;
+				// oList.innerHTML = '';
+				if (onOff) {
+					for (var i = 0; i < arr.length; i++) {
+					oList.innerHTML += '<li>' +arr[i] +'</li>';
+					};
+					onOff = false;
+				};
+				
+			}
+
+
+		}
+		
+	</script>
+</head>
+<body>
+	<input id="btn1" type="button" value = "自动生成5条新闻"/>
+	<ul id="list">
+		
+	</ul>
+</body>
+</html>
