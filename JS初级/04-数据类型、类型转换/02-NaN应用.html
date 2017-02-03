@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		// isNaN: is not a number 不是个数字
+		// isNaN();//判断某些值是不是数字类型
+		// alert(isNaN(250)); //false;
+		// alert(isNaN('哈哈'));//true 函数 也是true
+
+		window.onload=function  () {
+			var str = '';
+			var alnp = document.getElementsByTagName('input');
+			alnp[1].onclick = function(){
+				str = alnp[0].value;
+				// HTML 中拿到的内容，类型都是字符串
+				// alert(typeof str);
+				alert(isNaN(str));
+			}
+		}
+
+
+	</script>
+</head>
+<body>
+	<input type="text"/>
+	<input type="button" value="判断值是不是数字"/>
+</body>
+</html>

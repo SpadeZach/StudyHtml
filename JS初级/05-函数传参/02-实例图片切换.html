@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{background: #333;}
+		ul{padding: 0;margin: 0;}
+		li{list-style: none;}
+		.box{width: 400px;height: 500px;position: relative;float: left;margin-right: 60px;}
+		.box img{width: 400px;height: 500px;}
+		.box ul{width:40;height:40px;position: absolute;top: 0;right: -50px;}
+		.box li{width: 40px;height: 40px;margin-bottom: 4px;background: #666;}
+		.box .active{background: #fc3;}
+		.box p,.box span{width: 400px;height: 30px;line-height: 30px;text-align: center;color: #fff;position: absolute;background: #000;opacity: 0.8;
+		filter: alpha(opacity=80);}
+		.box p{bottom: 0;margin:0;}
+		.box span{top: 0;left: 0;}
+	</style>
+	<script>
+		window.onload = function  () {
+			fnTabl('pic1','onclick');
+			fnTabl('pic2','onmouseover');
+		}
+		function fnTabl(a,evt){
+			var arrUrl = ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg"];
+			var arrText = ["1","2","3","4"];
+			var oDiv = document.getElementById(a);
+			var oImg = oDiv.getElementsByTagName('img')[0];
+			var oSpan = oDiv.getElementsByTagName('span')[0];
+			var oP = oDiv.getElementsByTagName('p')[0];
+			var oUl = oDiv.getElementsByTagName('ul')[0];
+			var num = 0;
+			var aLi = oDiv.getElementsByTagName('li');
+			//初始化
+			
+			for (var i = 0; i < arrUrl.length; i++) {
+				oUl.innerHTML += '<li></li>';
+			};
+			fnTab();
+
+			// 初始化
+			function fnTab(){
+				oImg.src = arrUrl[num];
+				oSpan.innerHTML = 1+num+' / '+arrUrl.length;
+				oP.innerHTML = arrText[num];
+				for( var i=0; i<aLi.length; i++ ){
+					aLi[i].className = '';
+				}
+				aLi[num].className = 'active';
+			}
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].tag = i;
+				//系统的. 变得[]
+				aLi[i][evt] = function(){
+					num = this.tag;
+					fnTab();
+				};
+			};
+		}
+	</script>
+</head>
+<body>
+	<div id = "pic1" class ="box">
+		<img src=""/>
+		<span>数量正在加载</span>
+		<p>文字正在加载</p>
+		<ul>
+			
+		</ul>
+	</div>
+	<div id = "pic2" class ="box">
+		<img src=""/>
+		<span>数量正在加载</span>
+		<p>文字正在加载</p>
+		<ul>
+			
+		</ul>
+	</div>
+	
+</body>
+</html>

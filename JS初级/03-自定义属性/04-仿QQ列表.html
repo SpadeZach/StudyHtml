@@ -3,10 +3,83 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style>
+		ul,h2{ padding: 0;margin: 0;}
+		li{list-style: none;}
+		#list{width: 240px;border: 1px solid #333;margin: 0 auto;}
+		#list .lis{}
+		#list h2{height: 30px;line-height: 30px;text-indent: 20px;background: url(img/ico1.gif) no-repeat 5px center #F99;color: #000;}
+		#list .active{background: url(img/ico2.gif) no-repeat 5px center #6FF;color: #000;}
+		#list ul{display:  none;}
+		#list ul li{line-height: 24px;border-bottom: 1px solid #333;text-align: 24px;}
+		#list ul .hover{background: #6FF;}
+	</style>
+	<script>
+		window.onload = function () {
+			var oUl = document.getElementById('list');
+			var aH2 = oUl.getElementsByTagName('h2');
+			var aUl = oUl.getElementsByTagName('ul'); 
+			var aLi = null;
+			var arrLi = [];
+			for (var i = 0; i < aH2.length; i++) {
+				aH2[i].tag = i
+				aH2[i].onclick = function(){
+					if (this.className == '') {
+						 //遍历所有h2
+						 for(var i=0; i<aH2.length; i++){
+						 	//h2class  清空
+                            aH2[i].className = '';
+                            //h2样式清空
+                            aUl[i].style.display = 'none';
+                        }
+                        //设置当前ul样式
+						aUl[this.tag].style.display = 'block';
+						this.className = 'active';
+					}else{
+						aUl[this.tag].style.display = 'none';
+						this.className = '';
+					}
+				}
+			};
+			for (var i = 0; i < aUl.length; i++) {
+				aLi = aUl[i].getElementsByTagName('li');
+				for (var j = 0; j < aLi.length; j++) {
+					arrLi.push(aLi[j]);
+				}
+			}
+
+
+			for (var i = 0; i < arrLi.length; i++) {
+				arrLi[i].onclick = function(){
+						//如果样式为空
+					    if (this.className == '') {
+					    	//遍历所有li
+                        	for (var i = 0; i < arrLi.length; i++) {
+                        		//样式清空
+                            	arrLi[i].className = '';
+                        	}
+                        	//设置样式
+                        	this.className = 'hover';
+                    	}else{
+                    		//样式不为空清空
+                    		this.className = '';
+                    	}
+       
+
+
+                   // for (var i = 0; i < arrLi.length; i++) {
+	                  //  	arrLi[i].className = '';
+                   // 	}
+                   
+                   // 	this.className = 'hover';
+				};
+			};
+		}
+	</script>
 </head>
 <body>
 	<ul id = "list">
-		<li>
+		<li class= "lis">
 			<h2>我的好友</h2>
 			<ul>
 				<li>谁谁谁</li>
@@ -15,22 +88,20 @@
 				<li>谁谁谁</li>
 			</ul>
 		</li>
-		<li>
-			<h2>家人</h2>
+		<li class= "lis">
+			<h2>公众号</h2>
 			<ul>
-				<li>谁谁谁</li>
-				<li>谁谁谁</li>
-				<li>谁谁谁</li>
-				<li>谁谁谁</li>
+				<li>企业1</li>
+				<li>企业2</li>
+				<li>企业3</li>
+				<li>企业4</li>
 			</ul>
 		</li>
-		<li>
+		<li class= "lis">
 			<h2>黑名单</h2>
 			<ul>
-				<li>谁谁谁</li>
-				<li>谁谁谁</li>
-				<li>谁谁谁</li>
-				<li>谁谁谁</li>
+				<li>黑名单1</li>
+				<li>黑名单2</li>
 			</ul>
 		</li>
 	</ul>

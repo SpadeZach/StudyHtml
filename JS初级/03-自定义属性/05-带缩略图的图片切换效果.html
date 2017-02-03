@@ -1,0 +1,63 @@
+<!-- 616 414  283  161 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>带缩略图的图片切换效果</title>
+	<style>
+		body{margin: 0;padding: 0;background: #000;}
+		#backView{background: url(img/bg.gif) no-repeat;width:1024px; height: 732px;margin: 0 auto;position: relative;}
+		#pic{width: 616px;height: 414px;position: absolute;top: 160px;left: 283px;}
+		#backView a{width: 40px;height: 40px;position: absolute;border: 1px solid #fff;font-size: 22px;color: #fff;background: #000;opacity: 0.4;
+		filter: alpha(opacity=40);top: 347px;text-align: center;line-height: 40px;text-decoration: none;}
+		#prev{left: 300px;}
+		#next{right: 142px;}
+		#backView a:hover{opacity: 0.8;
+		filter: alpha(opacity=80);}
+		#pageControl{position: absolute;top: 608px;width: 1024px;margin: 0 auto;border: 1px solid red;}
+		#pageControl ul{width:160px;border:1px blue solid;height:30px;margin:0 auto;}
+		#pageControl ul li{float: left;list-style: none;margin-right: 10px;}
+		
+	</style>
+	<script>
+		window.onload = function  () {
+			var arrUrl = ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg"];
+			var num = 0;
+			var oImg = document.getElementById('pic');
+			var oPrev = document.getElementById('prev');
+			var oNext = document.getElementById('next');
+			oImg.src = arrUrl[num];
+			var oUl = document.getElementsByTagName('ul')[0];
+			oPrev.onclick = function(){
+				if (num) {
+					num--;
+				}
+				oImg.src = arrUrl[num];
+			}
+			oNext.onclick = function(){
+				
+				if (num<arrUrl.length - 1) {
+					num++;
+				};
+				oImg.src = arrUrl[num];
+			}
+			for (var i = 0; i < arrUrl.length; i++) {
+				oUl.innerHTML += '<li><img src="img/yuan.png"/ style="width:20px;height:20px;"></li>';
+			};
+		}
+	</script>
+</head>
+<body>
+	<div id = "backView">
+		<img src="" id = "pic"/>
+		<a href="javascript:;" id = "prev"><</a>
+		<a href="javascript:;" id = "next">></a>
+		<div id="pageControl">
+			<ul>
+				<li></li>
+			</ul>
+		</div>
+		
+	</div>
+</body>
+</html>

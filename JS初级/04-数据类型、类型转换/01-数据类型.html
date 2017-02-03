@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		// ECMAScript:标准、核心
+		// HTML标签类型：
+		//JS中的数据类型：
+		// typeof判断类型:number、string、bool、对象、数组、json(字典)、函数、未定义类型
+		// string.charAt(下标)
+		// null 不能添加自定义属性
+
+		var a='100';
+		// alert(a+100); //'100100'
+		// 方法:转为number-只能转包含数字的基本类型
+		// BOOL值 ture -1  false-0
+		// alert(Number(a)+100);
+		
+		//Int整型 碰到p直接截断 + -号没问题
+		var b = '100px';
+		alert(parseInt(b,10));//这就算是10进制
+		var c = '1.34'
+		alert(parseFloat(c));
+
+		var num='200';
+
+		if (parseInt(num)== parseFloat(num)) {
+			alert(num+'整数');
+		}else{
+			alert(num+'小数');
+		}
+
+		//隐式（特殊）类型转换
+		// - * /  % 会变数字 
+		// +号变字符串
+		// ++ -- 变成数字
+		// > < '10'> 9 变bool ture '10'>'9' 变字符串比较 false
+		//!取反 
+		// == 相等于
+		alert('200'-3);
+
+		var abc = Number('abc');
+		// alert(typeof(a));
+		// NaN: not a Number 不是个数字的数字类型
+
+		// 一旦程序中出现NaN 肯定进行了非法运算符操作
+		if (abc) {
+			alert('真');
+		}else{
+			alert('假');
+		};
+		alert(abc==abc); //false NaN与自己都不等
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

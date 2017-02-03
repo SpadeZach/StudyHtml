@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		// fn1(100,'px');
+		// function fn1 (a,b) {
+		// 	alert(a+b);
+		// }
+		// fn2(function(a){alert(a)});
+		// function fn2(fn){
+		// 	fn(100);
+		// }
+		// fn2(fn3);
+		// function fn3(){
+		// 	alert(3);
+		// }
+
+		fn1(100);
+		fn1('haha');
+		fn1(function(){alert(1);});
+
+		function fn1(a){
+			if (typeof a == 'number' && a == a) {
+				alert(a+20);
+			}else if(typeof a == 'string'){
+				alert(a.charAt(2));
+			}else if (typeof a == 'function'){
+				a();
+			};
+		}
+		
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>  
+<html>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
+<title>无标题文档</title>  
+<script>  
+window.onload = function () {  
+    var oUl = document.getElementById('list');  
+    var aLi = oUl.getElementsByTagName('li');  
+    var sumNum = 0;  
+    var sumPrice = 0;  
+    var maxPrice = 0;  
+    var arr = [];  
+    for(var i = 0;i < aLi.length;i++){  
+       aLi[i].index = i;  
+       arr.push(0);
+    }  
+    for ( var i=0; i<aLi.length; i++ ) {  
+        fnCount ( aLi[i] );  
+    }  
+    function fnCount (li) {  
+        var aBtn = li.getElementsByTagName ('input');  
+        var oStrong = li.getElementsByTagName ('strong')[0];  
+        var oEm = li.getElementsByTagName ('em')[0];  
+        var oSpan = li.getElementsByTagName ('span')[0];  
+        var oP = document.getElementsByTagName('p')[0];  
+        var oStrong1 =oP.getElementsByTagName ('strong')[0];      
+        var oEm1 = oP.getElementsByTagName ('em')[0];  
+        var oSpan1 = oP.getElementsByTagName('span')[0];  
+        var n = oStrong.innerHTML;        
+        var clickNum = 0;   // '0'  
+        //单价
+        var price = parseFloat(oEm.innerHTML);          // 12.5  
+          
+        aBtn[0].onclick = function () {   
+            if ( n > 0 ) {  
+                n--;   
+            }  
+            sumNum--;  
+            oStrong.innerHTML = n;    
+            oSpan.innerHTML = n*price + '元';  
+            oStrong1.innerHTML = sumNum ;  
+            sumPrice -= price;  
+            oEm1.innerHTML = sumPrice + '元';  
+              
+            if(n > 0){  
+              arr[li.index] = price;  
+              if(arr[li.index] > maxPrice){  
+                maxPrice = arr[li.index];  
+              }  
+            }else{  
+               arr[li.index] = 0;  
+               maxPrice = 0;  
+               for(var i = 0;i < arr.length;i++){  
+                if(arr[i] > maxPrice){  
+                maxPrice = arr[i];  
+                }  
+               }  
+            }  
+            oSpan1.innerHTML = maxPrice;  
+          
+        };  
+        aBtn[1].onclick = function () {  
+            //累加点击次数
+            sumNum++;
+            //n是获取的个数
+            n++;  
+            oStrong.innerHTML = n;        
+            oSpan.innerHTML = n*price + '元';      
+            oStrong1.innerHTML = sumNum ; 
+            //总价 = 每次加的单价 
+            sumPrice += price;      
+            oEm1.innerHTML = sumPrice + '元';  
+  
+           arr[li.index] = price;  
+              if(arr[li.index] > maxPrice){  
+                maxPrice = arr[li.index];  
+              }  
+              oSpan1.innerHTML = maxPrice;  
+        };  
+    }  
+  
+      
+};  
+</script>  
+</head>  
+  
+<body>  
+  
+<ul id="list">  
+    <li>  
+    <input type="button" value="-" />  
+    <strong>0</strong>  
+    <input type="button" value="+" />  
+    单价：<em>12.5元</em>  
+    小计：<span>0元</span>  
+  </li>  
+    <li>  
+    <input type="button" value="-" />  
+    <strong>0</strong>  
+    <input type="button" value="+" />  
+    单价：<em>10.5元</em>  
+    小计：<span>0元</span>  
+  </li>  
+    <li>  
+    <input type="button" value="-" />  
+    <strong>0</strong>  
+    <input type="button" value="+" />  
+    单价：<em>8.5元</em>  
+    小计：<span>0元</span>  
+  </li>  
+    <li>  
+    <input type="button" value="-" />  
+    <strong>0</strong>  
+    <input type="button" value="+" />  
+    单价：<em>8元</em>  
+    小计：<span>0元</span>  
+  </li>  
+    <li>  
+    <input type="button" value="-" />  
+    <strong>0</strong>  
+    <input type="button" value="+" />  
+    单价：<em>14.5元</em>  
+    小计：<span>0元</span>  
+  </li>  
+</ul>  
+  
+<p>  
+商品合计共：<strong>0</strong>件，共花费了：<em>0元</em><br />  
+其中最贵的商品单价是：<span>0</span>元  
+</p>  
+  
+</body>  
+</html>  
