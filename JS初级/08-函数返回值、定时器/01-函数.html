@@ -1,0 +1,66 @@
+<!-- 2017-02-04 by zhaobo -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{width: 100px;height: 100px;background: red;}
+	</style>
+	<script>
+		/*
+		var a = '';
+		a = fn1();
+		alert(a);
+		function fn1 () {
+			
+			return '哈哈';
+		}
+		*/
+		/*
+		alert(fn2(20)(10)); //1
+		function fn2(b){
+			return function(a){
+				alert(a+b); //注释
+			}
+		}
+		*/
+		// window.onload=function(){
+		// 	var oBtn = getId('btn1');
+		// 	oBtn.onclick = function(){
+		// 		alert(getId('div1').innerHTML);
+		// 	}
+		// }
+		// function getId(id){
+		// 	return document.getElementById(id);
+		// }
+		//第二种方法-jq
+		// $(function(){
+		// 	$('#btn1').click(function(){
+		// 		$this.css(background,blue);
+		// 	})
+		// });
+
+		// 仿Jq
+		$(function(){
+			$('btn1').onclick = function(){
+				$(this).style.background = 'blue';
+			};
+		});
+		function $(v){
+			if (typeof v === 'function') {
+				window.onload = v;
+			}else if(typeof v === 'string'){
+				return document.getElementById(v);
+			}else{
+				return v;
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<input type="button" id ="btn1" value="按钮"/>
+	<div id = "div1"></div>
+</body>
+</html>

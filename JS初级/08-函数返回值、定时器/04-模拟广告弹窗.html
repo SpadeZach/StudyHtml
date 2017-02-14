@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{background: url(img/ad.png) no-repeat center 0;text-align: center;}
+		img{display: none;}
+	</style>
+	<script>
+		window.onload = function  () {
+			// body...
+			var adView = document.getElementById('adView');
+			setTimeout(function(){
+				adView.style.display ='inline-block';
+				setTimeout(function(){
+				adView.style.display ='none';
+
+				
+			},3000);
+
+			},2000);
+		}
+	</script>
+</head>
+<body>
+	<img src="img/1.jpg" id="adView"/>
+</body>
+</html>

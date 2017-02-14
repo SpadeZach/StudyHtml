@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload = function  () {
+			var oP = document.getElementById('time');
+			var aImg = document.getElementsByTagName('img');
+			setInterval(fnTime,1000);
+			fnTime();
+			function fnTime(){
+				var myTime = new Date();
+				var iHour = myTime.getHours();
+				var iMinutes = myTime.getMinutes();
+				var iSeconds = myTime.getSeconds();
+				var str = '';
+				str = toZero(iHour)+toZero(iMinutes)+toZero(iSeconds);
+				oP.innerHTML = str;
+				for (var i = 0; i < str.length; i++) {
+					aImg[i].src = 'img/'+ str.charAt(i)+'.jpg';
+				}
+				
+			}
+			
+			function toZero(n){
+				if (n < 10) {
+					return '0' + n;
+				}else{
+					return '' + n;
+				}
+				  
+			}	
+
+		}
+	</script>
+</head>
+<body>
+	<p id = "time" style="font-size:60px"></p>
+	<img src="img/0.jpg" alt="">
+	<img src="img/0.jpg" alt="">
+	<img src="img/0.jpg" alt="">
+	<img src="img/0.jpg" alt="">
+	<img src="img/0.jpg" alt="">
+	<img src="img/0.jpg" alt="">
+
+
+
+</body>
+</html>

@@ -38,7 +38,7 @@
 						表达式可以修改预解析的值！
 			
 
-
+							//弹出提示
 
 alert(a);					// function a (){ alert(4); }
 var a = 1;
@@ -51,12 +51,13 @@ function a (){ alert(4); }
 alert(a);					// 3
 
 alert( typeof a );
-// a();									// 报错
+// a();						// 报错，不是函数了，其实是个数字
 */
 
 /*
 var a = 1;
 function fn1(){
+	//进行域解析-> 找到var a 未定义;优先级为就近
 	alert(a);						// undefined
 	var a = 2;
 }
@@ -65,6 +66,8 @@ alert(a);							// 1
 
 var a = 1;
 function fn1(){
+	//进行域解析-> 找到var a =1;优先级为就近
+	// 没有var 就从外部找 由上至下
 	alert(a);						// 1
 	a = 2;
 }
@@ -90,10 +93,63 @@ function fn1(a){
 fn1(a);
 alert(a);							// 1
 */
+
+
 </script>
+	<!-- 访问局部变量 -->
+	<script>
+		var str = '';
+		function fn1(){
+			var a = 'x';
+			str = a;
+		}
+		fn1();
+		alert(str);
+	</script>
+	<!-- 访问局部变量 -->
+	<script>
+		var str = '';
+		function fn2(){
+			var a = '哈哈哈';
+			fn2(a);
+		}
+		function fn3(b){
+			alert(b); //哈哈哈
+		}
+	</script>
+	<script>
+		// alert(a); //undefine
+		alert(fn4);
+		//作用域只有函数 才是作用域
+		if () {
+			var a = 1;
+			// 火狐不可以解析出
+			function fn4(){
+				alert(123);
+			}
+		};
+
+	</script>
+	<script>
+		window.onload = function(){
+			var aBtn = document.getElementsByTagName('input');
+			for (var i = 0; i < aBtn.length; i++) {
+				//for 循环完了才可以点 
+				aBtn[i].onclick = function(){
+					alert(i);  //3;
+					aBtn[i].style.background = 'yellow';	
+				}
+			};
+
+
+		}
+
+	</script>
 
 </head>
-
+	<input type="button" value = "按钮1"/>
+	<input type="button" value = "按钮2"/>
+	<input type="button" value = "按钮3"/>
 <body>
 </body>
 </html>

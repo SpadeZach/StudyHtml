@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+.cont{
+       margin: 30px auto;
+       height: 400px;
+       width: 800px;
+       padding: 20px;
+       border:1px solid #ccc;
+       position: relative;
+}
+.div1{float: left;}
+.div2{float: right;}
+.div1,.div2{
+    height: 400px;
+    width: 340px;
+    overflow: hidden;
+}
+.div1 img,.div2 img{
+    height: 300px;
+    width: 338px;
+    overflow: hidden;
+    border:1px solid #e4007e;
+}
+.div1 p,.div2 p{
+    text-align: center;
+    height: 38px;
+    line-height: 38px;
+}
+    </style>
+</head>
+<body>
+    <input id="btn1" type="button" value="上一组">
+<input id="btn2" type="button" value="下一组">
+<div class="cont" id="cont">
+    <div class="div1">
+        <img src="img/small.jpg">
+        <p>第一组第一张</p>
+        <span>1/4</span>
+    </div>
+    <div class="div2">
+        <img src="img/small-04.jpg">
+        <p>第二组第一张</p>
+        <span>1/3</span>
+    </div>
+</div>
+    <script>
+    var oBtn1=document.getElementById('btn1');
+    var oBtn2=document.getElementById('btn2');
+    var oDiv=document.getElementById('cont');
+    var aImg=oDiv.getElementsByTagName('img');
+    var aSpan=oDiv.getElementsByTagName('span');
+    var aP=oDiv.getElementsByTagName('p');
+    var num1=0;//存放数字
+    var num2=0;//存放数字
+    var arrUrl1=['img/small.jpg','img/small-02.jpg','img/small-03.jpg','img/small-04.jpg'];
+    var arrUrl2=['img/small-05.jpg','img/small-06.jpg','img/small-07.jpg'];
+    var oText1=['第一组第一张','第一组第二张','第一组第三张','第一组第四张'];
+    var oText2=['第二组第一张','第二组第二张','第二组第三张'];
+
+    function Tab(){
+        aImg[0].src=arrUrl1[num1];
+        aImg[1].src=arrUrl2[num2];
+        aP[0].innerHTML=oText1[num1];
+        aP[1].innerHTML=oText2[num2];
+        aSpan[0].innerHTML=num1+1+'/'+arrUrl1.length;
+        aSpan[1].innerHTML=num2+1+'/'+arrUrl2.length;
+    }
+    Tab();
+    oBtn2.onclick=function(){
+        num1++;
+        num2++;
+        if (num1==arrUrl1.length) {
+            num1=0;
+        };
+        if (num2==arrUrl2.length) {
+            num2=0;
+        };
+        Tab();
+    }
+    oBtn1.onclick=function(){
+        num1--;
+        num2--;
+        if (num1==-1) {
+            num1=arrUrl1.length-1;
+        };
+        if (num2==-1) {
+            num2=arrUrl2.length-1;
+        };
+        Tab();
+    }
+    </script>
+</body>
+</html>

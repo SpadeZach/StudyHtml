@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value ="换背景"/>
+	<input type="button" value ="暂停"/>
+	<script>
+		var aBtn = document.getElementsByTagName('input');
+		var arrImg = ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'];
+		var oBody = document.body;
+		var num = 0;
+		var timer = null;
+		aBtn[0].onclick =function  () {
+
+			clearInterval(timer);
+			//var timeOnce = setTimeout (函数,毫秒);  只执行一次;
+			//clearTimeout(timeOnce);
+			timer = setInterval(function(){
+				oBody.style.background = 'url('+arrImg[num]+')';
+				num++;
+				num %= arrImg.length
+			
+			},3000);
+		}
+		aBtn[1].onclick =function(){
+			clearInterval(timer);
+		}
+
+	</script>
+</body>
+</html>

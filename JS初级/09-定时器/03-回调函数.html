@@ -1,0 +1,60 @@
+<!-- 2017-02-11 by zhaobo -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{width: 100px;height: 100px;background: red;position: absolute;top: 50px;left: 30px;}
+	</style>
+</head>
+<body>
+	<input type="button" value="开始" id = "btn1"/>
+	<div id ="div1"></div>
+	<script>
+		var  aBtn = document.getElementById('btn1');
+		var  aDiv = document.getElementById('div1');
+		// aDiv.timer = null;
+		aBtn.onclick = function  () {
+			//速度
+			doMove(aDiv,10,800,'left',function(){
+				doMove(aDiv,10,800,'top')
+			});
+			
+		}
+		//1.谁动  2.方向速度 3.目的距离
+		function doMove(obj,dir,garget,attr,endFn){
+
+			dir = parseInt(getStyle(obj,attr)) < garget ? dir : -dir;
+
+			clearInterval(obj.timer);
+			obj.timer = setInterval(function(){
+				//速度
+				var speed = parseInt(getStyle(obj,attr)) + dir ;
+				if ( speed > garget && dir > 0 || speed < garget && dir < 0) {
+					speed = garget;//前跑
+				};
+
+				//偏移距离
+				obj.style[attr] = speed + 'px';
+				if (speed == garget) {
+					clearInterval(obj.timer);
+					/*
+					if (endFn) {
+						endFn();
+					}
+					*/
+					endFn && endFn();
+				}
+			},30)
+		}
+
+		// getComputedStyle 只读 样式
+		function getStyle(obj,attr){
+			return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr];;
+		}
+
+
+	</script>
+</body>
+</html>

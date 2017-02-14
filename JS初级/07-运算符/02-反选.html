@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload = function  () {
+			var aLnp = document.getElementsByTagName('input');
+			aLnp[0].onclick = function(){
+				for (var i = 1; i < aLnp.length; i++) {
+					aLnp[i].checked = !aLnp[i].checked;
+					/*
+					if (aLnp[i].checked) {
+						aLnp[i].checked = false;
+					}else{
+						aLnp[i].checked = true;
+					}
+					*/
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value = "反选"/>
+	<ul>
+		<li><input type="checkbox"/></li>
+		<li><input type="checkbox"/></li>
+		<li><input type="checkbox"/></li>
+		<li><input type="checkbox"/></li>
+		<li><input type="checkbox"/></li>
+		<li><input type="checkbox"/></li>
+		<li><input type="checkbox"/></li>
+		<li><input type="checkbox"/></li>
+	</ul>
+</body>
+</html>

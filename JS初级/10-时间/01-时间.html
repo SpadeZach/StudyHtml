@@ -1,0 +1,72 @@
+<!-- 2017-02-10 by zhaobo -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		/*
+			系统时间对象
+		*/
+		window.onload = function  () {
+			setInterval(fnTime,1000);
+			fnTime();
+			function fnTime(){
+				var myTime = new Date();
+			//类型都是number
+				var iYear = myTime.getFullYear();
+				var iDate = myTime.getDate(); //日
+				var iMonth = myTime.getMonth();//月
+				var iWeek = myTime.getDay();//星期
+				var iHour = myTime.getHours();
+				var iMinutes = myTime.getMinutes();
+				var iSeconds = myTime.getSeconds();
+
+				// alert(iMonth+1);
+				if (iWeek == 0) {
+					
+				};
+				switch (iWeek){
+					case 0:
+						iWeek = '星期日';
+						break;
+					case 1:
+						iWeek = '星期一';
+						break;
+					case 2:
+						iWeek = '星期二';
+						break;
+					case 3:
+						iWeek = '星期三';
+						break;
+					case 4:
+						iWeek = '星期四';
+						break;
+					case 5:
+						iWeek = '星期五';
+						break;
+					default:
+						iWeek = '星期六';
+						break;
+				}
+				var str = '';
+				str = iYear+'年'+ iMonth+'月'+iDate+'日'+''+iWeek+''+toZero(iHour)+':'+toZero(iMinutes)+':'+toZero(iSeconds);
+				document.body.innerHTML = str;
+			}
+			function toZero(n){
+				if (n < 10) {
+					return '0' + n;
+				}else{
+					return '' + n;
+				}
+				  
+			}	
+		}
+		// alert(new Date()); //当前系统的时间对象
+		
+	</script>
+</head>
+<body style = "font-size:60px;">
+	
+</body>
+</html>

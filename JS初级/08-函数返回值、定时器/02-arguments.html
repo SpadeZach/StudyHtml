@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		fn1(1,2,3);//1,2,3叫实参
+		//a,b,c,叫形参
+		function fn1 () {
+			// arguments =>[1,2,3]->实参集合
+			alert(arguments[0]);
+		}
+		//当函数的参数个数无法确定时用arguments
+		alert(sum(1,2,3));
+		function sum(){
+			var n = 0;
+			for (var i = 0; i < arguments.length; i++) {
+				n += arguments[i];
+			}
+			return n;
+		}
+		var a = 1;
+		function fn2(){
+			// arguments[0] = 3;
+			alert(a); //undefined
+			var a = 2;
+		}
+		fn2();
+		alert(a);//1
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

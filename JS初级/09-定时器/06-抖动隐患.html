@@ -1,0 +1,31 @@
+<!-- 2017-02-12 by zhaobo -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		img{width: 100px;height: 100px;position: absolute;top: 200px;}
+	</style>
+	<script src = 'js/doMove.js'></script>
+	<script>
+		window.onload = function  () {
+			var str = '';
+			for (var i = 1; i <5; i++) {
+				str += '<img src="img/'+i+'.jpg"/>'
+			};
+			document.body.innerHTML = str;
+			var aImg = document.getElementsByTagName('img');
+			for (var i = 0; i < aImg.length; i++) {
+				aImg[i].style.left = 80 + i * 110 + 'px';
+				aImg[i].onmouseover = function(){
+					shake(this,'top');
+				}
+			};
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

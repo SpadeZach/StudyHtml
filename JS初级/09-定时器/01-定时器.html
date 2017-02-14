@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{width: 100px;height: 100px;background: red;position: absolute;top: 50px;left: 30px;}
+	</style>
+</head>
+<body>
+	<input type="button" value="往前" id = "btn1"/>
+	<input type="button" value="往后" id = "btn2"/>
+	<div id ="div1"></div>
+	<script>
+		var  aBtn = document.getElementById('btn1');
+		var  aDiv = document.getElementById('div1');
+		var  oBtn2 = document.getElementById('btn2');
+		// aDiv.timer = null;
+		aBtn.onclick = function  () {
+			clearInterval(aDiv.timer);
+			// body...
+			//aDiv.style.left = 30;
+			aDiv.timer = setInterval(function(){
+				//速度
+				var speed = parseInt(getStyle(aDiv,'left')) + 10 ;
+				if ( speed > 800) {
+					speed = 800;
+				};
+				//偏移距离
+				aDiv.style.left = speed + 'px';
+				if (speed == 800) {
+					clearInterval(aDiv.timer);
+				}
+			},30)
+			
+		}
+		oBtn2.onclick = function  () {
+			clearInterval(aDiv.timer);
+			// body...
+			//aDiv.style.left = 30;
+			aDiv.timer = setInterval(function(){
+				//速度
+				var speed = parseInt(getStyle(aDiv,'left')) + -10 ;
+				if ( speed < 10) {
+					speed = 10;
+				};
+				//偏移距离
+				aDiv.style.left = speed + 'px';
+				if (speed == 10) {
+					clearInterval(aDiv.timer);
+				}
+			},30)
+			
+		}
+		// getComputedStyle 只读 样式
+		function getStyle(obj,attr){
+			return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr];;
+		}
+
+
+	</script>
+</body>
+</html>

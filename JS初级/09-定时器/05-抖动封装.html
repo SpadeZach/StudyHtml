@@ -1,0 +1,48 @@
+<!-- 2017-02-12 by zhaobo -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#img1{position: absolute;top: 200px;left: 300px;width: 180px;height: 300px;}
+	</style>
+	<script src="js/doMove.js"></script>
+	<script>
+		window.onload = function  () {
+			var oImg = document.getElementById('img1');
+			oImg.onclick = function(){
+				var _this = this;
+				shake(_this,'left',function(){
+					shake(_this,'top');
+				});
+
+		}
+
+		function shake(obj,attr,endFn){
+			var oImgX = parseInt(getStyle(obj,attr));
+			var num = 0;
+			var arr = [];
+			for (var i = 20; i > 0; i-=2) {
+				arr.push(i,-i);
+			}
+			arr.push(0);
+			clearInterval(obj.shakeTimer);
+			obj.shakeTimer = setInterval(function(){
+					obj.style[attr] = oImgX + arr[num] + 'px';
+					num++;
+					if (num == arr.length) {
+						clearInterval(obj.shakeTimer);
+						//如果是函数 执行
+						endFn && endFn();
+					}
+				},50);
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<img src="img/1.jpg" alt="" id = "img1"/>
+</body>
+</html>

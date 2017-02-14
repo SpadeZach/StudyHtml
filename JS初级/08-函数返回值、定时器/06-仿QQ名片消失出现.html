@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#qq{width: 200px;height: 400px;background: #F9C;}
+		#title{width: 240px;height: 180px;background: #FC6;position: absolute;top: 10px;left: 220px;display: none;}
+
+	</style>
+	<script src = "js/03-main.js"></script>
+	<script>
+		$(function  () {
+			// body...
+			var qq = $('qq');
+			var title = $('title');
+			var timer = null;
+			qq.onmouseover = show;
+			qq.onmouseout = hidden;
+			title.onmouseover = show;
+			title.onmouseout = hidden;
+			function show(){
+				clearInterval(timer);
+				title.style.display = 'block';
+			}
+			function hidden(){
+				timer = setTimeout(function(){
+					title.style.display = 'none';
+				},500);
+				
+			}
+
+		})
+	</script>
+</head>
+<body>
+	<div id ="qq"></div>
+	<div id ="title"></div>
+</body>
+</html>

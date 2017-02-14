@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		/*
+			定时器
+			var timer=setInterval(函数,时间(毫秒)); 重复不断
+			clearInterval(timer); 清除
+		*/
+		var i = 0;
+		var timer = null;
+		function fn1 () {
+			document.title = i;
+			i++;
+			if (i==30000) {
+				clearInterval(timer);
+			}
+		}
+		// fn1();
+		// document.onclick = fn1;
+		timer = setInterval(fn1,1000);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

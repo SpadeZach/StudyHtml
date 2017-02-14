@@ -1,0 +1,40 @@
+<!-- 2017-02-12 by zhaobo -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#img1{position: absolute;top: 200px;left: 300px;width: 180px;height: 300px;}
+	</style>
+	<script src="js/doMove.js"></script>
+	<script>
+		window.onload = function  () {
+			var oImg = document.getElementById('img1');
+			oImg.onclick = function(){
+				var oImgX = parseInt(getStyle(oImg,'left'));
+				var num = 0;
+				var timer = null;
+				var arr = [];
+				for (var i = 20; i > 0; i-=2) {
+					arr.push(i,-i);
+				}
+				arr.push(0);
+				clearInterval(timer);
+				timer = setInterval(function(){
+					oImg.style.left = oImgX + arr[num] + 'px';
+					num++;
+					if (num == arr.length) {
+						clearInterval(timer);
+					}
+				},50);
+				// alert(arr);
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<img src="img/1.jpg" alt="" id = "img1"/>
+</body>
+</html>
