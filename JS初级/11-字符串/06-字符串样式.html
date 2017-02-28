@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div { width:300px; height:200px; border:1px solid #333; background:#fff; padding:20px; line-height:40px; }
+		span { padding:5px 15px; font-family:微软雅黑; }
+	</style>
+	<script>
+		// var str = 'www.baidu.com';
+		// alert(str.toUpperCase());//转大写
+		// alert(str.toLowerCase());//转小写
+		//split:字符串分割成数组
+		// alert(str.split('.')); //以.分割
+		// alert(str.split('')); //以每个字符分割
+		// alert(str.split('',3)); //截取几段
+	</script>
+</head>
+<body>
+	<div id = "div1"></div>
+	<input type="text"/>
+	<input type="button" value = "按钮"/>
+	<script>
+		var oDiv = document.getElementById('div1');
+		var alnp = document.getElementsByTagName('input');
+		var arrColor = ['#ffc','#cc3','#c21','#c89'];
+		alnp[1].onclick = function  () {
+			// body...
+			var str = alnp[0].value;
+			var arr= str.split(''); //以每个文字为一组
+			for (var i = 0; i < arr.length; i++) {
+				arr[i] = '<span style = "background:'+arrColor[i%arrColor.length] + ';">'+ arr[i] + '</span>';
+			}
+			// arr.join 数组变json
+			oDiv.innerHTML += arr.join('');
+		}
+		 // arr.join('');用法与split差不多
+	</script>
+</body>
+</html>

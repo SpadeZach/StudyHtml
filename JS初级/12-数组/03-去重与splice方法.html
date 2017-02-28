@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var arr = ['ACT','A.RPG','AVG','A.AVG','RPG'];
+		//删除
+		arr.splice(0,2);//从第几位开始  删几位
+		//替换
+		arr.splice(0,1,'RPG');//替换掉
+		//添加
+		arr.splice(1,0,'AR');
+		// alert(arr);
+		//去重
+		var arr1 = [ 1,2,2,4,2 ];
+
+		for ( var i=0; i<arr1.length; i++ ) {
+			for ( var j=i+1; j<arr1.length; j++ ) {
+				if ( arr1[i] == arr1[j] ) {
+					arr1.splice( j, 1 );
+					j--;
+				}
+			}
+		}
+		alert( arr1 );
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!-- 2017-02-27 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		// var arr = [1,2,3];
+		// var arr = new Array(4); //开辟4个空间
+		// arr.length = 0; //快速清空数组
+		// arr = [];
+		/**** 数组基本操作 ****/
+		var arr = [];
+		//添加
+		arr.push(1,2,3); //返回值为数组个数
+		arr.unshift(0); //往前 添加  //IE6,7不支持返回值
+		//删
+		var arr1 = ['RPG','GM','AVG','A.AVG'];
+		// arr.pop();//删掉最后一位
+		// arr.shift();//删掉第一位
+		arr1.unshift(arr1.pop()); //改位置
+		alert(arr1);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

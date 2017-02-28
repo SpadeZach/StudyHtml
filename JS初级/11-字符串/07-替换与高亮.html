@@ -1,0 +1,33 @@
+<!-- 2017-02-27 by zhaobo -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		p{border: 1px solid #ccc;background: #FFC;width: 400px;padding: 20px;font-size: 16px;font-family: 微软雅黑;}
+		span{background: yellow;}
+	</style>
+</head>
+<body>
+	<input type="text"/>
+	<input type="text"/>
+	<input type="button" value = "替换"/>
+	<p>自从空战机械“狂风”“风暴”能跟着角色进图后，它们也走进了玩家们的心里，小号升级1-85必用职业，这两个笨拙的机器人被召唤出来后，除非自己爆炸外从未离开过召唤者，忠心的保卫每一个玩家。从每一个账号支援兵，再到每一个工会支援兵，来自天界的机械师傅们从未被放弃过，徘徊在二线职业的机械师在支援兵界居然崭露头角。“突击队长的杀戮手枪”增加空战机械“暴风”“狂风”设置数+1，也就是可以召唤两个空对地机械人进行无死角的扫射！</p>
+
+	<script>
+		var alnp = document.getElementsByTagName('input');
+		var oP = document.getElementsByTagName('p')[0];
+		alnp[2].onclick = function  () {
+			// body...
+
+			var str = alnp[0].value;
+			var newStr = alnp[1].value;
+			if (!str) return;
+				oP.innerHTML = oP.innerHTML.split(str).join('<span>'+newStr+'</span>');
+			 // oP.innerHTML = oP.innerHTML.split(str).join('<span>'+ newStr +'<span/>');
+
+		}
+	</script>
+</body>
+</html>

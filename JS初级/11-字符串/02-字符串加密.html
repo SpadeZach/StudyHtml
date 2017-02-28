@@ -1,0 +1,34 @@
+<!-- 2017-02-24 by zhaobo -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text"/>
+	<input type="button" value="加密"/>
+	<div id = "div1">加密...</div>
+	<script>
+		// document.body.innerHTML = String.fromCharCode(20390);
+		// var str = '';
+		// for (var i = 0; i < 1000; i++) {
+		// 	str += String.fromCharCode(i) + '';
+		// };
+		var alnp = document.getElementsByTagName('input');
+		var oDiv = document.getElementById('div1');
+		alnp[1].onclick = function  () {
+			// body...
+			var str = alnp[0].value;
+			var str1 = '';
+			//alert( str.charCodeAt(0))
+			for (var i = 0; i < str.length; i++) {
+				str1 += String.fromCharCode((str.charCodeAt(i)-1000)) + ' ';
+
+			}
+			oDiv.innerHTML = str1;
+
+		}
+	</script>
+</body>
+</html>

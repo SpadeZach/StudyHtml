@@ -1,0 +1,39 @@
+<!-- 2017-02-24 by zhaobo -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		// var str = '字符串获取类、封装监测数字的方法';
+		// alert(str.charAt(2)); 
+		// alert(str.charCodeAt(2));//什么都不写的话就是第一个的编码值
+		// alert(String.fromCharCode(22937,22392));  //根据编码返回字符串
+		// alert(str.charCodeAt()); //0~9编码为48~57 a~z 编码为97~122 A~Z 编码65~90
+		window.onload = function  () {
+			var alnp = document.getElementsByTagName('input');
+			alnp[1].onclick = function(){
+				if (detctNum(alnp[0].value)) {
+					alert('全是数字');
+				}else{
+					alert('不是数字');
+				}
+			}
+			function detctNum(str){
+				var n = 0;
+				for (var i = 0; i < str.length; i++) {
+					n = str.charCodeAt(i);
+					if (n < 48 || n > 57)return false;
+				}
+				return true;
+			}
+
+		}
+
+	</script>
+</head>
+<body>
+	<input type="text"/>
+	<input type="button" value = "监测"/>
+</body>
+</html>
