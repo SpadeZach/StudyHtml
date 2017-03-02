@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		/*
+			DOM :document object model 文档 对象 模型
+			文档：html页面
+			文档对象:html页面中元素
+			文档对象模型:w3c定义 为了能够让程序(js)去操作页面中的元素
+
+			DOM 会把文档看作是树状结构，同时定义了很多方法来操作这颗树的每一个元素(节点)
+			例如： getElementById
+				  getElementsByTagName
+				  document
+				  document.body
+		*/
+		window.onload = function  () {
+			// body...
+			var oUl = document.getElementById('ul1');
+			//childNodes:属性(只读) 子节点列表集合 有兼容性问题
+			//标准下文本节点、元素节点  非标准：元素节点 
+			//DOM节点类型有12种
+			alert(oUl.childNodes.length); //9  换行也算个文本节点 非标准4个
+			for (var i = 0; i < oUl.childNodes.length; i++) {
+				if (oUl.childNodes[i].nodeTyle ==1) {
+					oUl.childNodes[i].style.background = 'red';//标准浏览器报错
+				}
+				
+			}
+			//nodeTyle:只读属性  当前元素节点类型 1.元素节点 3.文本类型2.属性节点
+			//attributes：属性节点 属性集合
+			//DOM IE8 以下 非法嵌套 不算节点
+			alert(oUl.attributes[0].nodeTyle);
+
+			/*
+				children:只读属性 子节点列表
+				跟childNodes不一样的地方是children只包含元素节点
+			*/
+
+		}
+	</script>
+</head>
+<body>
+	<ul id = "ul1" style="border 1px red"><li>1111</li>
+			<li>2222 <span>span</span></li>
+			<li>3333</li>
+			<li>4444</li>
+	</ul>
+</body>
+</html>

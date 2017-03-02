@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{padding: 40px 50px;}
+		#div1{background: blue;}
+		#div2{background: red;position: relative;}
+		#div3{background: yellow;position: relative;}
+	</style>
+	<script>
+		window.onload = function(){
+			var oDiv3 = document.getElementById('div3');
+		// alert(oDiv3.offsetLeft); //到父级的距离
+		// var iTop = 0;
+		// var obj = oDiv3;
+		// while(obj){
+		// 	alert(obj.id + ':' + obj.offsetTop);
+		// 	iTop += obj.offsetTop;
+		// 	obj = obj.offsetParent;
+		// 	alert(obj.id);
+		// }
+		var a = getPos (oDiv3);
+		alert(a.top);
+			function getPos (obj) {
+				var pos = {left:0,top:0};
+				while(obj){
+					pos.left += obj.offsetLeft;
+					pos.top += obj.offsetTop;
+					obj = obj.offsetParent;
+				}
+				return pos;
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<div id = "div1">
+		<div id = "div2">
+			<div id = "div3"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{padding: 40px 50px;}
+		#div1{background: blue;}
+		#div2{background: red;}
+		#div3{background: yellow;position: relative;}
+	</style>
+	<script>
+		window.onload = function  () {
+			// var oUl = document.getElementById('ul1');
+			var aA = document.getElementsByTagName('a');
+			for (var i = 0; i < aA.length; i++) {
+				aA[i].onclick = function(){
+					//parentNode：父节点,当前节点的父级节点
+					this.parentNode.style.display = 'none';
+				}
+			}
+
+			var oDiv3 = document.getElementById('div3');
+			// offsetParent 父节点 有定位的父节点，如果多个就是最近的
+			//没有定位父级默认是Body ie有兼容性问题
+			// alert(oDiv3.offsetParent);
+
+			/*******  位置及尺寸  ********/
+			/*
+			 offsetLeft[Top]:只读属性，当前元素到定位腹肌的距离（偏移值）
+			 IE6，7 兼容问题： 如果自己没定位，那么当前offsetLeft 是到Body的距离
+			 offsetLeft -> html
+			 如果没有定位父级offsetParent->body
+			 如果有定位父级ie6,7offsetLeft->如果自己有定位，那么就是定位父级的距离,			
+			*/
+			// alert(oDiv3.offsetLeft);
+
+			var oDiv4 = document.getElementById('div4');
+			// alert(oDiv4.style.width); 100
+			//style.width 样式宽
+			alert(oDiv4.clientWidth); //样式宽+ padding 120 可视区域宽
+			//offsetWidth 占位宽= 样式宽 + padding + 边框
+		}
+	</script>
+</head>
+<body>
+	<ul id = "ul1" style="border 1px red">
+		<li>1111 <a href="javascript:">隐藏</a></li>
+		<li>2222 <a href="javascript:">隐藏</a></li>
+		<li>3333 <a href="javascript:">隐藏</a></li>
+		<li>4444 <a href="javascript:">隐藏</a></li>
+	</ul>
+	<div id = "div1">
+		<div id = "div2">
+			<div id = "div3"></div>
+		</div>
+	</div>
+	<div id = "div4" style = "width:100px;height:100px;border:1px solid red;padding:10px;margin:10px"></div>
+</body>
+</html>

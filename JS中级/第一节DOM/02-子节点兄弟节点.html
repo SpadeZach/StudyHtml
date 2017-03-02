@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload = function  () {
+			var oUl = document.getElementById('ul1');
+			/*
+				元素.firstChild:只读,获取第一个子节点
+				会不兼容
+				元素.fristElementChild:只读 标准下获取第一个元素类型子节点（不兼容）不兼容的没有fristElementChild
+				
+				元素.lastChild: 与上相同
+			*/
+			/*
+				元素.nextSibing:只读  当前节点的下一个节点
+				元素.previousSibing:只读  当前节点的上一个节点
+
+			*/
+			alert(oUl.firstChild);
+			if (oUl.firstElementChild) {
+				oUl.firstElementChild.style.background = 'red';
+			}else{
+				oUl.firstChild.style.background = 'yellow';
+			}
+			//有隐性问题 如果没子节点 就会出问题
+			var oFirst = oUl.firstElementChild || oUl.firstChild; //没什么用
+			oFirst.style.background = 'red';
+
+			if (oUl.children[0]) {
+				//改
+			}
+			oFirst.nextSibing.style.background = 'blue';
+
+
+
+		}
+	</script>
+</head>
+<body>
+	<ul id = "ul1" style="border 1px red"><li>1111</li>
+			<li>2222 <span>span</span></li>
+			<li>3333</li>
+			<li>4444</li>
+	</ul>
+</body>
+</html>
