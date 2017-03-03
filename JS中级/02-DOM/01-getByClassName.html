@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload = function  () {
+			var oUl1 = document.getElementsByTagName('ul')[0];
+			var oUl2 = document.getElementsByTagName('ul')[1];
+			// body...
+			// var aLi = getElementsByClassName(oUl1,'box');
+			//获取文档里的box
+			var aLi = getElementsByClassName(document,'li','box');
+			alert(aLi.length);
+
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].style.background = 'red';
+			};
+
+			function getElementsByClassName(parent,tagName,className){
+				var aEls = parent.getElementsByTagName(tagName);
+				var arr = [];
+				for (var i = 0; i < aEls.length; i++) {
+					// if (aEls[i].className == className) {
+					// 	arr.push(aEls[i]);
+					// }
+					//去除空格
+					var aClassName = aEls[i].className.split(' ');
+					for (var j = 0; j < aClassName.length; j++) {
+						if (aClassName[j] == className) {
+							arr.push(aEls[i]);
+							break;
+						}
+					}
+				}
+				return arr;
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id =  "ul1">
+		<li class="box">111</li>
+		<li class= "box box">222</li>
+		<li>333</li>
+		<li class= "box box1">444</li>
+	</ul>
+	<ul id =  "ul2">
+		<li class="box">111</li>
+		<li class= "box box">222</li>
+		<li>333</li>
+		<li class= "box box1">444</li>
+	</ul>
+	<div id = "div1">
+		<p class= "box"> ppppp</p>
+	</div>
+</body>
+</html>
