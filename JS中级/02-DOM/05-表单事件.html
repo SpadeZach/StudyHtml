@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form id="form1" action="https://www.baidu.com">
+		<input type="text" name="text1"/>
+		<input type="submit" name ="dosubmit" value = "提交"/>
+		<input type="reset" name ="sorsoreset" valie = "重置"/>
+	</form>
+	<script>
+		var oForm = document.getElementById('form1');
+		//subimts(函数); JS 提交
+		oForm.onsubmit = function  () {
+			if (this.text1.value == '') {
+				alert('输入内容');
+				return false;
+			}
+		}
+		//重置事件 onrest 当表单重置时触发
+		oForm.onrest = function  () {
+			//对话框
+			var re = confirm('你确定重置'); //返回是Bool
+			// if (re) {
+			// 	return true;
+			// }else{
+			// 	return false;
+			// }
+			return re
+		}
+	</script>
+</body>
+</html>

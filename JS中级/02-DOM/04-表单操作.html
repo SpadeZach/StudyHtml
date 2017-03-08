@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form id = "form1">
+		<input type="text" name="text1" value = "内容"/>
+		<input type="radio" name="sex1" value = "男" checked/>男
+		<input type="radio" name="sex1" value = "女"/>女
+		<input type="checkbox" name = "a" value = "html"/>
+		<input type="checkbox" name = "a" value = "css"/>
+		<input type="checkbox" name = "a" value = "javascript"/>
+		<select name="city">
+			<option value="">请选择城市</option>
+			<option value="北京">北京</option>
+			<option value="大连">大连</option>
+		</select>
+	</form>
+	<script>
+		var oForm = document.getElementById('form1');
+		//name访问
+		// oForm.text1
+		// onchange:当值发生改变时触发
+		/*
+			text:当光标离开的时候如果有变化会触发
+			radio/checkbox: 标准下点击的时候值变了就会触发
+			非标准离开才会触发
+		*/
+		oForm.text1.onchange = function  () {
+			alert('触发');
+		}
+		oForm.sex1[0].onchange = function  () {
+			alert('触发');
+		}
+		// oForm.city.value;
+	</script>
+</body>
+</html>

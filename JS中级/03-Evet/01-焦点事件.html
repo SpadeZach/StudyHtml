@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET=utf-8}">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * 焦点:使浏览器能够区分用户输入的对象，当一个元素有焦点的时候，那么他就可以接受用户的输入
+			 * 常用方式：点击，tab ,js
+			 * 不是所有元素都能接受焦点，能够响应用户操作的元素才有焦点
+			 */
+			window.onload = function(){
+				var oText = document.getElementById('text1');
+				var oBtn = document.getElementById('btn');
+				//onfocus获取焦点
+				oText.onfocus = function(){
+					if(this.value = '请输入内容'){
+						this.value = '';
+					}
+				}
+				//onblur失去焦点
+				oText.onblur = function(){
+					if(this.value = ''){
+						this.value = '请输入内容';
+					}
+				}
+				//focus()给指定元素设置焦点
+				//blur()给指定元素取消焦点
+				//select()全选
+				oBtn.onclick = function(){
+					oText.selcet();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" name="" id="" value="" />
+		<input type="text" name="" id="" value="" />
+		<input type="text" name="" id="" value="" />
+		<div id = "div1">div</div>
+		<input type="text" name="" id="" value="" />
+		<a href="https://www.baidu.com">百度</a>
+		<input type="text" id="text1" value="请输入内容"/>
+		<input type="button" id="btn" value="全选" />
+	</body>
+</html>

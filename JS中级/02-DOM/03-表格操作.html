@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload = function  () {
+			var data = [{id:3,usename:'哈',sex:"男"},{id:4,usename:'囍',sex:"男"},{id:5,usename:'啧',sex:"男"}]
+			// body...
+			var oTab = document.getElementById('tab1');
+			// alert(oTab.tBodies[0].rows[1].cells[1].innerHTML);
+			/*
+				tHead:表头
+				tBodies:表格正文
+				tFoot:表格尾
+					rows：行
+					cells：列
+			*/
+			var oTbody = oTab.tBodies[0];
+			for (var i = 0; i < data.length; i++) {
+				 var oTr = document.createElement('tr');
+
+				 var oTd = document.createElement('td');
+				 oTd.innerHTML = data[i].id;
+				 oTr.appendChild(oTd);
+
+				 if (i % 2) {
+				 	oTr.style.background = 'white';
+				 }else{
+				 	oTr.style.background = 'gray';
+				 }
+
+				 oTd = document.createElement('td');
+				 oTd.innerHTML = data[i].usename;
+				 oTr.appendChild(oTd);
+
+				 oTd = document.createElement('td');
+				 oTd.innerHTML = data[i].sex;
+				 oTr.appendChild(oTd);
+
+				 oTd = document.createElement('td');
+				 oTd.innerHTML = '&nbsp;';
+				 oTr.appendChild(oTd);
+
+				 var oA = document.createElement('a');
+				 oA.innerHTML = '删除';
+				 oA.href = "javascript:";
+				 oA.onclick = function(){
+				 	oTbody.removeChild(this.parentNode.parentNode);
+				 	for (var i = 0; i < oTbody.length; i++) {
+				 		if (i % 2) {
+				 			oTbody.rows[i].style.background = 'white';
+						 }else{
+						 	oTbody.rows[i].style.background = 'gray';
+						 }
+				 	}
+				 }
+				 oTd.appendChild(oA);
+
+
+				 oTbody.appendChild(oTr);
+			};
+
+		}
+	</script>
+</head>
+<body>
+	<table id = "tab1" width = "100%" border = "1px">
+		<thead>
+			<tr>
+				<th>编号</th>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>野兽</td>
+				<td>男</td>
+				<td><a href="javascript:">删除</a></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>美女</td>
+				<td>女</td>
+				<td><a href="javascript:">删除</a></td>
+			</tr>
+
+		</tbody>
+	</table>
+</body>
+</html>

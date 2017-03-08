@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		
+		window.onload = function(){
+			/*
+			BOM:Browser Object Model 浏览器对象模型
+			*/
+			var aInput = document.getElementsByTagName('input');
+			/*
+				window.open(url,打开方式) 方法 打开一个新的窗口,如果默认url为空打开一个默认页面
+				如果参数二为空,默认新窗口方式打开
+			*/
+			aInput[0].onclick = function  () {
+				// body...
+				window.open('https://www.baidu.com');
+			}
+			/*
+				close()方法 //不兼容  但是可以关闭通过js打开的窗口
+			*/
+			aInput[1].onclick = function  () {
+				// body...
+				window.close();
+			}
+			alert(window.navigator.userAgent);//浏览器信息
+			if (window.navigator.userAgent.indexOf('MSIE')!=-1) {
+				alert('我是IE');
+			}
+			//window.loctaion：浏览器地址（obj）
+			// window.loctaion.href 浏览器地址
+			//window.loctaion.search : url？号后的内容
+			//window.loctaion.hash :url #号后内容
+		}
+		
+	</script>
+</head>
+<body>
+	<input type="button" value ="打开"/>
+	<input type="button" value ="关闭"/>
+</body>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style type="text/css">
+			div{padding: 40px;}
+			#div1{background: red;}
+			#div2{background: deepskyblue;}
+			#div3{background: greenyellow;}
+			#div4{width: 100px;height: 200px;border: 1px solid red; display: none;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oDiv3 = document.getElementById('div3');
+				var oDiv2 = document.getElementById('div2');
+				var oDiv1 = document.getElementById('div1');
+				function fn1(){
+					alert(this.id);
+				}
+				/*
+				 * 事件冒泡：当一个元素接受到事件的时候，会把他接受到的事件传播给父级一直到window
+				 */
+				/*
+				 * 阻止冒泡的事件函数中return false；
+				 * event.cancelBubble = false;
+				 */
+				oDiv1.onclick = fn1;
+				oDiv2.onclick = fn1;
+				oDiv3.onclick = fn1;
+				var oBtn = document.getElementById('btn');
+				var oDiv4 = document.getElementById('div4');
+				oBtn.onclick =function(){
+					var ev = ev||event;
+					ev.cancelBubble = true;//阻止当前对象的当前事件的冒泡
+					oDiv4.style.display = 'block';
+				}
+				document.onclick = function(){
+					oDiv4.style.display = 'none';
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2">
+				<div id="div3">
+			
+				</div>
+			</div>
+		</div>
+		<input type="button" value = "按钮" id="btn"/>
+		<div id = "div4"></div>
+	</body>
+</html>

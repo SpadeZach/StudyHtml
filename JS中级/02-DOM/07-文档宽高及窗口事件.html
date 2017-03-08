@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 *  可视区尺寸clientWidth/Height
+			 */
+//			alert(document.documentElement.clientWidth);
+			var oDiv = document.getElementById('div1');
+			document.onclick = function(){
+				/*
+				 * 滚动条滚动距离
+				 * document.body.scrollTop[scrollLeft] 因为火狐不兼容所以有这个
+				 */
+				alert(document.documentElement.scrollTop);//不兼容火狐
+				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+				alert(scrollTop);
+				
+				//内容高oDiv.scrollHeight/Width
+//				oDiv.scrollHeight
+				
+//				document.body.offsetHeight //body高
+				
+			}
+			/*
+			 * onscroll：当滚动条滚动的时候
+			 */
+			var i = 0;
+			window.onscroll = function(){
+				document.title = i++;
+			}
+			/*
+			 * onresize 当窗口改变大小
+			 */
+			window.onresize = function(){
+				document.title = i++;
+			}
+		</script>
+	</head>
+	<body style="height: 2000px;">
+		<div id="div1" style="width: 100px;height: 100px;border: 1px solid red;padding: 10px;margin: 10px;">
+			<div style="width: 100px;height: 200px;background: blue;overflow: hidden;"></div>
+		</div>
+	</body>
+</html>

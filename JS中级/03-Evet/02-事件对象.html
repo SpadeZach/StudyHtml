@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<script type="text/javascript">
+				/*
+				 * event:事件对象，当一个事件发生的时候，和当前对象发生的事件有关详细的信息都会被临时保存到一个指定地方-event对象
+				 * 兼容：ie/chrome:event是一个内置全局对象
+				 * 火狐：事件对象是通过
+				 */
+//				alert(event);//这里没有事件
+//event 使用需要 事件函数里调用
+				//兼容
+				function fn1(a){
+					var a = a || event;
+					for(var attr in ev){
+						console.log(atr+'=' + a[attr]);//控制台打印细节
+					}
+				}
+				document.onclick = fn1;
+				/*
+				 * clientX[Y]点击事件发生瞬间鼠标位置
+				 * onmousemove鼠标在一个元素上面移动触发
+				 */
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
